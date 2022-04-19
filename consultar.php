@@ -26,7 +26,7 @@
 
 <div class="container mt-5">
     <?php
-    //echo(count($resultados));
+  
     $cnpj = $_GET['Cnpj'];
     $cnpjstring = substr($cnpj,0,2) . "." . substr($cnpj,2,3) . "." . substr($cnpj,5,3) . "/" . substr($cnpj,8,4). "-" . substr($cnpj,12,2);
     
@@ -56,9 +56,9 @@
             //Converte resposta em json para PHP
             $response = json_decode($response, true);
             //Fim conversão
-
-            print_r($response);
-            print_r($response['atividades_secundarias'][0]['text']);
+            
+            //print_r($response);
+            //print_r($response['atividades_secundarias'][0]['text']);
 
             //Inserção dos valores no banco de dados
             $linhasafetadas = $db->exec(" INSERT INTO Consulta 
@@ -125,6 +125,7 @@
             if($linhasafetadas>0){
 
                 echo("Sucesso!");
+                header("Refresh:0");
 
             }
 
