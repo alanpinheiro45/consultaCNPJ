@@ -53,20 +53,18 @@
             curl_close($curl);
             //Fim Consulta API
 
-            //Converte resposta em json para PHP
+   
             $response = json_decode($response, true);
-            //Fim conversão
+      
             
-            //print_r($response);
-            //print_r($response['atividades_secundarias'][0]['text']);
-
+           
             //Inserção dos valores no banco de dados
             $linhasafetadas = $db->exec(" INSERT INTO Consulta 
-            ('nome',
-            'uf',
-            'telefone',
-            'cnpj',
-            'atividade_principal',
+                ('nome',
+                'uf',
+                'telefone',
+                'cnpj',
+                'atividade_principal',
                 'data_situacao',
                 'complemento',
                 'tipo',
